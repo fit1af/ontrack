@@ -1,0 +1,49 @@
+<h2>Projekt: <%= @user.project.name %>
+<p>
+  <b>Beschreibung:</b>
+  <%= @user.project.description %>
+</p>
+<p>
+  <b>Start date:</b>
+  <%= @user.project.start_date %>
+</p>
+
+<h2>Listing iterations</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Project</th>
+    <th></th>
+  </tr>
+
+<% @user.project.iterations.each do |iteration| %>
+  <tr>
+    <td><%= iteration.name %></td>
+    <td><%= iteration.description %></td>
+    <td><%= iteration.start_date %></td>
+    <td><%= iteration.end_date %></td>
+    <td><%= iteration.project_id %></td>
+    <td><%= link_to 'Show', iteration %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Listing Projectmembers</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Group</th>
+  </tr>
+
+<% @members.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.group.name %></td>
+  </tr>
+<% end %>
+</table>
